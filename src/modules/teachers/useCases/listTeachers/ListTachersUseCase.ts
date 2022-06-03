@@ -1,5 +1,5 @@
 import { Teacher } from "../../model/Teacher";
-import { ITeachersRepository } from "../../repositories/ITeachersRepository";
+import { ITeachersRepository } from "../../repositories/implementations/ITeachersRepository";
 import { TeacherRepository } from "../../repositories/TeacherRepository";
 
 
@@ -8,9 +8,9 @@ class ListTeachersUseCase{
   constructor(TeacherRepository:TeacherRepository) {
     this.teacherRepository = TeacherRepository
   }
-  execute() :Teacher[]{
+    execute(){
     const teachers = this.teacherRepository.list()
-    return teachers
+    return  teachers
   }
 }
 

@@ -1,4 +1,5 @@
-import { ITeachersRepository } from "../../repositories/ITeachersRepository";
+
+import { ITeachersRepository } from "../../repositories/implementations/ITeachersRepository";
 import { TeacherRepository } from "../../repositories/TeacherRepository";
 
 
@@ -14,7 +15,7 @@ class CreateTeacherUseCase{
     this.teacherRepository = RepositoryTeacher
   }
 
-  execute({ name, description }: IRequest) {
+ execute({ name, description }: IRequest) {
     const teacher = {name,description}
     this.teacherRepository.create(teacher)
   }

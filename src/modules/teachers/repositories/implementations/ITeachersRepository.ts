@@ -1,4 +1,4 @@
-import { Teacher } from "../model/Teacher";
+import { Teacher } from "../../model/Teacher";
 
 
 
@@ -8,7 +8,7 @@ interface ICreateTeacherDTO{
 }
 interface ITeachersRepository{
 
-  list(): Teacher[];
+  list(): void;
   create({name , description}:ICreateTeacherDTO): void;
 }
 

@@ -8,11 +8,12 @@ import { listTeachersController } from "../modules/teachers/useCases/listTeacher
 
 
 const teacherRoutes = Router()
-const teacherRepository = new TeacherRepository()
+
 
 
 teacherRoutes.post("/", (request, response) => {
- createTeacherController.handle(request,response)
+  createTeacherController.handle(request, response)
+
 })
 
 teacherRoutes.get("/", (request, response) => {
