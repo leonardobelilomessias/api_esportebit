@@ -1,26 +1,32 @@
 
-import { Teacher } from "../model/Teacher";
+
+import { Repository } from "typeorm";
+import { AppDataSource } from "../../../database/data-source";
+import { Teacher } from "../entities/Teacher";
 import { ICreateTeacherDTO, ITeachersRepository } from "./ITeachersRepository";
 
 
 
 
 class TeacherRepository implements ITeachersRepository{
-  private teachers: Teacher[]
+  private teachers: Repository<Teacher>
   constructor() {
-    this.teachers=[]
+    this.teachers = AppDataSource.getRepository(Teacher)
+    
   }
-  create({name, description}:ICreateTeacherDTO ):void {
+  async create({name, description}:ICreateTeacherDTO ):Promise<void> {
   const teacher = new Teacher()
   Object.assign(teacher, {
     name,
     description
   })
-    this.teachers.push(teacher)
-    console.log(this.teachers)
+    await this.teachers.save(teacher)
+    
   }
-  list() :Teacher[]{
-    return this.teachers
+  async list(): Promise<Teacher[]>{ 
+    const all = await this.teachers.find()
+    console.log(all)
+    return all ;
   }
 }
 

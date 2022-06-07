@@ -1,4 +1,5 @@
-import { Teacher } from "../model/Teacher";
+import { Repository } from "typeorm";
+import { Teacher } from "../entities/Teacher";
 
 
 
@@ -8,7 +9,7 @@ interface ICreateTeacherDTO{
 }
 interface ITeachersRepository{
 
-  list(): Teacher[];
+  list(): Promise<Teacher[]>;
   create({name , description}:ICreateTeacherDTO): void;
 }
 

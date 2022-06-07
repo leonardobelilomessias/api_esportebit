@@ -1,4 +1,4 @@
-import { Teacher } from "../../model/Teacher";
+import { Teacher } from "../../entities/Teacher";
 import { ITeachersRepository } from "../../repositories/ITeachersRepository";
 import { TeacherRepository } from "../../repositories/TeacherRepository";
 
@@ -8,8 +8,8 @@ class ListTeachersUseCase{
   constructor(TeacherRepository:TeacherRepository) {
     this.teacherRepository = TeacherRepository
   }
-  execute() :Teacher[]{
-    const teachers = this.teacherRepository.list()
+   async execute() :Promise<Teacher[]>{
+    const teachers =  await this.teacherRepository.list()
     return teachers
   }
 }
