@@ -27,6 +27,13 @@ class ClassRoomRepository implements IClassRoom{
     return all
   }
 
+  async findByName(name:string) {
+    const classRoomExist = await this.classRoomRepository.createQueryBuilder("classes")
+    .where("name = :name", { name: name })
+    .getOne()
+    console.log(classRoomExist)
+    return classRoomExist
+  }
 
 }
 

@@ -8,7 +8,12 @@ class CreateClassRoomUseCase{
   constructor(ClassRoomRepository: ClassRoomRepository) { 
     this.classRoomRepository =ClassRoomRepository
   }
-  execute({name,id_teacher}:ICreateClassRoomDTO) {
+  async execute({ name, id_teacher }: ICreateClassRoomDTO) {
+    const classRoomExist = await this.classRoomRepository.findByName(name)
+
+    if (classRoomExist) {
+      return  Error("ClassRoom already exist!")
+    }
     this.classRoomRepository.create({name,id_teacher})
   }
   
