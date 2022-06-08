@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 import {v4 as uuidV4} from 'uuid'
+import { ClassRoom } from '../../classRoom/entity/ClassRoom';
 
 @Entity("teachers")
 class Teacher{
@@ -13,7 +14,8 @@ class Teacher{
   @Column()
   description: string;
 
-  
+  @OneToMany(() => ClassRoom, (classRoom) => classRoom.id_teacher)
+    classRoom:ClassRoom[]
 
   
   constructor() {

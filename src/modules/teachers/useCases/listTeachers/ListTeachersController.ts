@@ -9,7 +9,7 @@ class ListTeachersController{
   }
   async handle(request:Request ,response:Response):Promise<Response> {
     const all = await this.listTeachersUseCase.execute()
-    return response.json(all)
+    return response.status(200).json(all)
   }
 }
 
