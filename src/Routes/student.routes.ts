@@ -5,7 +5,6 @@ import { listStudentController } from "../modules/student/useCase/listStudent";
 
 const student = Router()
 
-
 student.get("/", (request,response) => {
   listStudentController.handle(request,response)
 })

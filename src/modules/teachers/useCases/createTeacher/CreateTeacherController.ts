@@ -1,7 +1,6 @@
 import { Request, Response } from "express"
 import { CreateTeacherUseCase } from "./CreateTeacherUseCase"
 
-
 class CreateTeacherController{
   private createTeacherUseCase: CreateTeacherUseCase 
   constructor(createTacherUseCase) {

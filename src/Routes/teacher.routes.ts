@@ -4,12 +4,8 @@ import { createTeacherController } from "../modules/teachers/useCases/createTeac
 import { CreateTeacherUseCase } from "../modules/teachers/useCases/createTeacher/CreateTeacherUseCase";
 import { listTeachersController } from "../modules/teachers/useCases/listTeachers";
 
-
-
-
 const teacherRoutes = Router()
 const teacherRepository = new TeacherRepository()
-
 
 teacherRoutes.post("/", (request, response) => {
  createTeacherController.handle(request,response)

@@ -7,6 +7,7 @@ const router = Router()
 
 router.use("/teachers", teacherRoutes)
 router.use("/classroom", classRoomRoutes)
-router.use("/student",student)
+router.use("/student", student)
+router.use("/noticeclassroom")
 
 export {router}
