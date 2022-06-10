@@ -25,7 +25,7 @@ class TeacherRepository implements ITeachersRepository{
   }
   async list(): Promise<Teacher[]>{ 
     const all = await this.teachers.find()
-    console.log(all)
+
     return all ;
   }
 }

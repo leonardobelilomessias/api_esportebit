@@ -1,6 +1,7 @@
 import { application } from 'express'
 import { DataSource, DataSourceOptions } from 'typeorm'
 import { ClassRoom } from '../modules/classRoom/entity/ClassRoom'
+import { Student } from '../modules/student/entity/Student'
 import { Teacher } from '../modules/teachers/entities/Teacher'
 
 export const AppDataSource = new DataSource({
@@ -10,7 +11,7 @@ export const AppDataSource = new DataSource({
   username: "root",
   password: "Leo175033",
   database: "db_esportebit",
-  entities: [Teacher,ClassRoom],
+  entities: [Teacher,ClassRoom,Student],
   subscribers: [
       "subscriber/*.js"
   ],

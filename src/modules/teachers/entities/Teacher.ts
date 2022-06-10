@@ -14,8 +14,7 @@ class Teacher{
   @Column()
   description: string;
 
-  @OneToMany(() => ClassRoom, (classRoom) => classRoom.id_teacher)
-    classRoom:ClassRoom[]
+
 
   
   constructor() {
