@@ -7,8 +7,8 @@ class CreateNoticeClassRoomUseCase{
   constructor(noticeClassRoomRepository:NoticeClassRoomRepository) {
     this.noticeClassRoomRepository = noticeClassRoomRepository
   }
-  async execute({title,content}:ICreateNoticeClassRoom) {
-    const newNotice = await this.noticeClassRoomRepository.create({ title, content })
+  async execute({title,content,classRoom,teacher}:ICreateNoticeClassRoom) {
+    const newNotice = await this.noticeClassRoomRepository.create({ title, content,classRoom,teacher })
     return newNotice
   }
 }

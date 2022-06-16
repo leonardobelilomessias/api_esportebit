@@ -7,7 +7,7 @@ class ListNoticeClassRoomUseCase{
     this.noticeClassRoomRepository =noticeClassRoomRepository
   }
   async execute():Promise<NoticeClassRoom[]> {
-    const allNoticesClassRoom = await  this.noticeClassRoomRepository.list()
+    const allNoticesClassRoom = await this.noticeClassRoomRepository.list()
     return allNoticesClassRoom
   }
 

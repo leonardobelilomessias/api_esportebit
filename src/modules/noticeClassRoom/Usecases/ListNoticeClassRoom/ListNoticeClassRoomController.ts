@@ -8,7 +8,7 @@ class ListNoticeClassRoomController{
     this.listNoticeClassRoomUseCase = listNoticeClassRoomUseCase
   }
   async handle(request:Request,response:Response): Promise<Response> {
-    const allNoticesClassRoom = this.listNoticeClassRoomUseCase.execute()
+    const allNoticesClassRoom = await this.listNoticeClassRoomUseCase.execute()
     return response.status(200).json(allNoticesClassRoom)
   }
 

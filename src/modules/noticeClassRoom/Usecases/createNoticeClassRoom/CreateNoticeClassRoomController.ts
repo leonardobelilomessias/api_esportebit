@@ -3,7 +3,9 @@ import { CreateNoticeClassRoomUseCase } from "./CreateNoticeClassRoomUseCase"
 
 interface IRequest{
   title: string;
-  content:string
+  content: string
+  teacher: string
+  classRoom:string
 }
 
 class CreateNoticeClassRoomController{
@@ -13,8 +15,8 @@ class CreateNoticeClassRoomController{
     this.createNoticeClassRoomUseCase = createNoticeClassRoomUseCase
   }
   async handle(request: Request, response: Response):Promise<Response> {
-     const {title,content}:IRequest = request.body
-    const newNotice = await this.createNoticeClassRoomUseCase.execute({title,content})
+     const {title,content,teacher,classRoom}:IRequest = request.body
+    const newNotice = await this.createNoticeClassRoomUseCase.execute({title,content,teacher,classRoom})
     return response.status(201).json(newNotice)
   }
 }

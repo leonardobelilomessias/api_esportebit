@@ -9,9 +9,9 @@ class NoticeClassRoomRepository implements INoticeClasRoomRepository{
   constructor() {
     this.noticeClassRoomRepository = AppDataSource.getRepository("notice_class")
   }
-  async create({ title, content }: ICreateNoticeClassRoom): Promise<NoticeClassRoom> {
+  async create({ title, content,teacher,classRoom }: ICreateNoticeClassRoom): Promise<NoticeClassRoom> {
     const newNotice = new NoticeClassRoom()
-    Object.assign(newNotice, { title, content })
+    Object.assign(newNotice, { title, content,teacher,classRoom })
     await this.noticeClassRoomRepository.save(newNotice)
     return newNotice
 

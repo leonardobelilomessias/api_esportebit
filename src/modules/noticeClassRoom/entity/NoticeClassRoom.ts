@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
-
+import {v4 as uuidv4} from 'uuid'
 @Entity("notice_class")
 class NoticeClassRoom{
 
@@ -13,11 +13,15 @@ class NoticeClassRoom{
   content: string;
 
   @Column()
-  class: string
+  classRoom: string
   
   @Column()
   teacher: string;
-      
+  constructor() {
+    if(!this.id) {
+      this.id = uuidv4()
+    }
+  }
     
 
 

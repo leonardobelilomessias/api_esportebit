@@ -2,13 +2,15 @@ import { NoticeClassRoom } from "../entity/NoticeClassRoom"
 
 interface ICreateNoticeClassRoom{
   title: string;
-  content:string
+  content: string
+  teacher: string
+  classRoom: string
 }
 
 
 interface INoticeClasRoomRepository{
 
-  create({title,content}:ICreateNoticeClassRoom): Promise<NoticeClassRoom>
+  create({title,content,teacher,classRoom}:ICreateNoticeClassRoom): Promise<NoticeClassRoom>
   list(): Promise<NoticeClassRoom[]>
 
 }
